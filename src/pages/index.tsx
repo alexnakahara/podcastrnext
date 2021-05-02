@@ -25,7 +25,7 @@ type HomeProps = {
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   return (
-    <div className={styles.homePage}>
+    <div className={styles.homepage}>
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos </h2>
 
@@ -38,6 +38,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   height={192}
                   src={episode.thumbnail}
                   alt={episode.title}
+                  objectFit="cover"
                 />
 
                 <div className={styles.episodeDetails}>

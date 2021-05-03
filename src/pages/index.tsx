@@ -13,7 +13,6 @@ type Episode = {
   id: string;
   title: string;
   thumbnail: string;
-  description: string;
   members: string;
   duration: number;
   durationAsString: string;
@@ -117,7 +116,7 @@ export const getStaticProps: GetStaticProps = async () => {
     params: {
       _limit: 12,
       _sort: 'published_at',
-      __order: 'desc'
+      _order: 'desc'
     }
   });
 
@@ -130,7 +129,8 @@ export const getStaticProps: GetStaticProps = async () => {
       members: episode.members,
       publishedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
       duration: Number(episode.file.duration),
-      durationAsString: convertDurationToTimeString(Number(episode.file.duration))
+      durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
+      url: episode.file.url,
     }
   });
 
